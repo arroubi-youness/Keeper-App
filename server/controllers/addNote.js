@@ -11,7 +11,7 @@ const handleNote= async (req, res) => {
          if (!id_user || !Note)
             return res
               .status(400)
-              .json({ message: "id_user and Note are required." });
+              .json({ message: "id_user and Note are required must be given." });
               const newNote = new note({
                 userId: id_user,   
                 content: Note    
