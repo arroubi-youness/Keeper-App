@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from 'react-toastify'; // Import ToastContainer
 import 'react-toastify/dist/ReactToastify.css'; 
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import UseAuth from "../hooks/UseAuth";  
 
 
@@ -16,7 +16,7 @@ function Form(props) {
     const [password,setPassword]=useState("");
     const [username,setUsername]=useState("");
 
-// const navigate = useNavigate();
+const navigate = useNavigate();
 
 
 
@@ -30,6 +30,7 @@ function Form(props) {
 
    const handleForm= async(e)=>{
     e.preventDefault();
+    // navigate("../App");
     const url = isSigned ? 'http://localhost:5000/api/login' :'http://localhost:5000/api/signup' ;
     const data = isSigned?{email,password}:{username,email,password};
     console.log(data);
