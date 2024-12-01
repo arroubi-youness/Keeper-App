@@ -6,7 +6,7 @@ const handleGettednote= async(req,res)=>{
     try{
         const {userId}=req.query;
         console.log(userId);
-        if(!userId)  return res.status(400).json({ message:"id user   is  required"});
+        if(!userId)  return res.status(400).json({ message:"id user   is  required (should added )"});
         const objectId = new mongoose.Types.ObjectId(userId);
 
         const Notes= await note.find({userId:objectId});
@@ -16,7 +16,7 @@ const handleGettednote= async(req,res)=>{
 
     }catch (error) {
         console.error("Error during getting data:", error);
-        return res.status(500).json({message:'server error. try again'});
+        return res.status(500).json({message:'server error, try again'});
   
     }
 
