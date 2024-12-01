@@ -30,43 +30,43 @@ const navigate = useNavigate();
 
    const handleForm= async(e)=>{
     e.preventDefault();
-    // navigate("../App");
-    const url = isSigned ? 'http://localhost:5000/api/login' :'http://localhost:5000/api/signup' ;
-    const data = isSigned?{email,password}:{username,email,password};
-    console.log(data);
+    navigate("../App");
+    // const url = isSigned ? 'http://localhost:5000/api/login' :'http://localhost:5000/api/signup' ;
+    // const data = isSigned?{email,password}:{username,email,password};
+    // console.log(data);
 
-    try {
-         const response = await axios.post(url, data);
+    // try {
+    //      const response = await axios.post(url, data);
 
-        console.log('Response:', response.data); 
-        if (response.status === 201) {
-           toast.success(response.data.message);
-           if(response.data.message!=="User added successfully!"){
-            login(response.data.accessToken);
-            localStorage.setItem("id_user",response.data.userId);
-            localStorage.setItem("name_user",response.data.username);
+    //     console.log('Response:', response.data); 
+    //     if (response.status === 201) {
+    //        toast.success(response.data.message);
+    //        if(response.data.message!=="User added successfully!"){
+    //         login(response.data.accessToken);
+    //         localStorage.setItem("id_user",response.data.userId);
+    //         localStorage.setItem("name_user",response.data.username);
 
 
 
-           }
-           else{
-             if (!isSigned) {
-              setSign(true); 
-               setEmail('');
-          setPassword('');
+    //        }
+    //        else{
+    //          if (!isSigned) {
+    //           setSign(true); 
+    //            setEmail('');
+    //       setPassword('');
        
-           } 
-           }
+    //        } 
+    //        }
           
-      }
+    //   }
       
 
-       } catch (error) {
-        console.error('Error:', error);
-        toast.error(`Error: ${error.response.data.message || 'Something went wrong!'}`);
+    //    } catch (error) {
+    //     console.error('Error:', error);
+    //     toast.error(`Error: ${error.response.data.message || 'Something went wrong!'}`);
         
 
-       }
+    //    }
     };
 
 
